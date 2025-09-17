@@ -26,9 +26,9 @@ public class TaskApiTest extends BaseTest {
                 given()
                         .header("Content-Type", "application/json")
                         .body(task)
-                        .when()
+                    .when()
                         .post("/tasks")
-                        .then()
+                    .then()
                         .statusCode(201)
                         .body("id", notNullValue())
                         .body("title", equalTo("Write API tests"))
@@ -43,9 +43,9 @@ public class TaskApiTest extends BaseTest {
     public void testGetTaskById() {
         given()
                 .pathParam("id", createdTaskId)
-                .when()
+            .when()
                 .get("/tasks/{id}")
-                .then()
+            .then()
                 .statusCode(200)
                 .body("id", equalTo(createdTaskId))
                 .body("title", equalTo("Write API tests"));
@@ -62,9 +62,9 @@ public class TaskApiTest extends BaseTest {
                 .header("Content-Type", "application/json")
                 .pathParam("id", createdTaskId)
                 .body(updatedTask)
-                .when()
+            .when()
                 .put("/tasks/{id}")
-                .then()
+            .then()
                 .statusCode(200)
                 .body("title", equalTo("Write API and UI tests"))
                 .body("status", equalTo("in-progress"));
@@ -75,9 +75,9 @@ public class TaskApiTest extends BaseTest {
     public void testDeleteTaskById() {
         given()
                 .pathParam("id", createdTaskId)
-                .when()
+            .when()
                 .delete("/tasks/{id}")
-                .then()
+            .then()
                 .statusCode(204);
     }
 
@@ -86,9 +86,9 @@ public class TaskApiTest extends BaseTest {
     public void testGetDeletedTaskReturnsNotFound() {
         given()
                 .pathParam("id", createdTaskId)
-                .when()
+            .when()
                 .get("/tasks/{id}")
-                .then()
+            .then()
                 .statusCode(404);
     }
 }
