@@ -8,6 +8,6 @@ public class BaseTest {
     @BeforeAll
     public static void setup() {
         // Set the base URI for all tests
-        RestAssured.baseURI = "https://api.example.com"; // Replace with your actual API base URL
+        RestAssured.baseURI = "https://api.aldi.us"; // Replace with your actual API base URL
     }
 }
